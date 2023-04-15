@@ -2,28 +2,54 @@ package Homework_6;
 
 public class Employee {
 
+    int id;
     int age;
     String firstName;
     String secondName;
     double salary;
 
-    public Employee(int age, String firstName, String secondName, double salary) {
+    public Employee(int id, int age, String firstName, String secondName, double salary) {
+        this.id = id;
         this.age = age;
         this.firstName = firstName;
         this.secondName = secondName;
         this.salary = salary;
     }
 
-    public Employee(int age, String firstName, String secondName) {
+    public Employee(int id, int age, String firstName, String secondName) {
+        this.id = id;
         this.age = age;
         this.firstName = firstName;
         this.secondName = secondName;
-        this.salary = 50.0;
+        salary = 50;
+    }
+
+    @Override
+    public int hashCode() {
+        return id;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        Employee t = (Employee) obj;
+        return t.firstName == firstName && t.secondName == secondName;
     }
 
     @Override
     public String toString() {
         return String.format("%s %s, %d лет, зарплата - $%f", firstName, secondName, age, salary);
+    }
+
+    public String getFullName() {
+        return String.format("%s %s", firstName, secondName);
+    }
+
+    public boolean olderThan(Employee e) {
+        return (age > e.age);
+    }
+
+    public void upgrade() {
+        salary += 20;
     }
 
 }
