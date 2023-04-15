@@ -1,7 +1,7 @@
 package Homework_6;
 
 public class Employee {
-    
+
     int age;
     String firstName;
     String secondName;
@@ -21,5 +21,9 @@ public class Employee {
         this.salary = 50.0;
     }
 
+    @Override
+    public String toString() {
+        return String.format("%s %s, %d лет, зарплата - $%f", firstName, secondName, age, salary);
+    }
 
 }
